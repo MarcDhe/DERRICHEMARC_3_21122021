@@ -1,0 +1,12 @@
+
+
+/*###################################*/
+/*#########   BOX-SIZING  ###########*/
+/*###################################*/
+
+*{                              /* Ici avec "*" signifie toute les classes */
+  box-sizing: border-box;     /*OPERA/IE 8+ */
+  -moz-box-sizing: border-box;  /* Mozila, auter Gecko */
+  -webkit-box-sizing: border-box;  /* Safari/chrome, autre webkit */
+
+}
