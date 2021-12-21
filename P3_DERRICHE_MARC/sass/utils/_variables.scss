@@ -1,10 +1,7 @@
-// Variables 
-$colour-primary: #15DEA5;
-$colour-secondary: #001534;
-$colour-accent: #D6FFF5;
-$colour-white: #fff;
-$colour-invalid: #DB464B;
+$color-background-primary: rgb(246, 246, 246); // gris léger
+$color-background-secondary: rgb(147, 86, 220);
+$color-background-tertiary: rgb(245, 237, 255);  //violet claire
 
-$heading-shadow-size: .55rem;
-$layout-margin: 6rem;
-$grid-gutter: $layout-margin * .25;
+$color-background-item: rgb(153, 226, 208);  // vert mate 
+
+$color-background-gradient: (rgb(233, 114, 218), rgb(159, 90, 220)); // dégradé de $1 a $2
