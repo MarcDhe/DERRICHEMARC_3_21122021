@@ -1,0 +1,23 @@
+/*###################################*/
+/*#########   Header      ###########*/
+/*###################################*/
+
+header{
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .logo{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: auto;
+    width:  auto;
+  }
+}
+
+@media screen and (min-width : 1224px){
+  header{
+    height: auto; //pour laissé le logo se dimensionné tout seul en evitant quil pixelise 
+                  //si reste bloqué sur la hauteur mais continue de s'élargir
+  }
+}

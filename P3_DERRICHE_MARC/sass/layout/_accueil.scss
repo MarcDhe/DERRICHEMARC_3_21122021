@@ -1,0 +1,328 @@
+// mobile first screen de red en 375px
+/*###################################*/
+/*#########   Header  ###########*/
+/*###################################*/
+
+// cf _header.scss
+
+/*###################################*/
+/*#####  Section 1 Position #########*/
+/*###################################*/
+
+.position{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(234, 234, 234);
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0 ,0.2)inset;
+    &__icone{
+      position: relative;
+      right: 20px;
+      font-size: 18px;
+    }
+    &__ville{
+      margin: 0;
+      font-size: 15px;
+    }
+}
+
+/*###################################*/
+/*##  Section 2 restaurantSearrch  ##*/
+/*###################################*/
+
+
+.restaurantSearch{
+  width: 100%;
+  height: 288px;
+  padding-top: 40px;
+  text-align: center;
+  background-color: $color-background-primary;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    &__btn{
+      height:50px;
+      width: 220px;
+      border-radius: 50px;
+      color: white;
+      border: none;
+      margin-top: 15px;
+      font-family: "Roboto";
+      @include background-gradient;
+      @include shadow-border;
+        &:hover{
+          @include shadow-border-hover;
+        }
+    }
+    h1{
+    width: 75%;             // permet de gerer auto la "marge" couplé au flex
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 24px;
+    margin: 0;
+    }
+    p{
+      font-weight: 100;
+      width: 80%;         // premet de gerer auto la "marge" couplé au flex
+    }
+}
+
+/*###################################*/
+/*####  SECTION 3 FONCTIONNING  #####*/
+/*###################################*/
+
+.fonctionning{
+  height: 375px;
+  &__title{
+    margin-top: 45px;
+    margin-bottom: 32px;
+    margin-left: 18px; //-2 px pour algner avec le bloc__numero et son margin
+  }
+}
+
+.bloc{
+  height: 75px;
+  margin-left: 30px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  background: $color-background-primary;
+  display: flex;
+  align-items: center; // alignement verticale
+  @include shadow-border;
+    &:hover{
+      @include shadow-border-hover;
+      background: $color-background-secondary;
+    }
+    &__numero{
+      background-color: $color-primary;
+      color: white;
+      height: 25px;
+      width: 25px;
+      border-radius: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: -12px;  // decallage leger vers la gauche
+      font-size: 14px;
+    }
+    &__icone{                // taille et largeur icone a revoir 
+      margin-left: 25px;      // passage icone violet survol
+      margin-right: 25px;
+      font-size: 20px;
+      color: rgb(143, 140, 140);
+        &--size{
+          font-size: 15px;
+          margin-left: 23px;
+          margin-right: 24px;
+        }
+    }
+}
+
+
+/*###################################*/
+/*####  SECTION 4 Restaurant    #####*/
+/*###################################*/
+
+
+.restaurant{
+  background: $color-background-primary;
+  padding-bottom: 45px;
+  padding-left: 20px;
+  padding-right: 20px;
+    &__title{
+      padding-top: 55px;
+      padding-bottom: 02px;
+    }
+}
+
+
+.card{
+  height: 252px;
+  width: 100%;
+  margin-bottom: 18px;
+  border-radius: 15px;
+  overflow: hidden;                   // contenu interieu depasse caché
+  @include shadow-border;
+    &:hover{
+      @include shadow-border-hover;
+    }
+  
+}
+
+.card__fill{
+  object-fit: scale-down;
+  height: 175px;
+  width: 100%;
+    &__new{                     // mention 'nouveau'
+      width: 80px;
+      height: 28px;  
+      background: $color-tertiary;
+      border-radius: 2px;
+      position: relative;
+      top: -95%;            // indiquer en % permet qu'il reste "fix"  l'élargissemnt de la fenetre
+      left: 72%;          // simplifie le medi desktop et tablette
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      p{
+        font-size: 14px;
+        margin: 0;
+        color: darken($color-tertiary, 40%);  // avantage si changement couleur color-background-item changement aussi du <p>
+      }
+    }
+  img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.card__body{
+  display: flex;
+  justify-content: space-between;
+  height: 77px;                     // hautreurCard - hauteurCard__Fill obligatoire sinon ne prend pas l'integralité de la hauteur en auto
+  align-items: center;              
+  margin-left: 10px;
+  margin-right: 10px;
+    &__like{
+      margin-right: 10px;
+      font-size: 25px;
+      color: linear-gradient($color-background-gradient);
+        &:hover{  // soucis a regler ici sur le hover
+          text-transform: uppercase;
+          background: linear-gradient($color-background-gradient);
+          -webkit-text-fill-color: transparent;
+
+        }
+    }
+  h3{
+    margin: 0;
+    padding-bottom: 5px;
+    font-weight: 500;
+  }
+  p{
+    margin: 0;
+    font-weight: 100;
+    
+  }   
+}
+
+
+
+/*###################################*/
+/*###########  FOOTER    ############*/
+/*###################################*/
+
+// cf _footer.scss
+
+/*###################################*/
+/*##########    DESKTOP   ###########*/
+/*###################################*/
+
+@media screen and (min-width : 1224px){
+
+  body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .max-size-desktop{      // defini une taille max qui ce fera centrer par le body
+    width: 1225px;
+  }
+
+    // deuxieme section RestaurantSearch
+
+    .restaurantSearch{
+      height: auto;
+      padding-bottom: 40px;
+    }
+  
+    // troisieme section Fonctionning
+
+  .fonctionning{
+    height: auto;
+    margin-bottom: 45px;
+  }
+  
+  .responsive{
+    display: flex;
+    justify-content: center;
+  }
+
+  .bloc{
+    width: 28%;
+  }
+ 
+  //quatrieme partie Restaurant
+
+  .restaurant{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .restaurant--flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    a{
+      width: 45%;
+      margin-bottom: 20px;
+    }
+  }
+
+  
+  .card{
+    height: 350px;
+    width: 100%;
+      &__fill{
+        height: 273px;   //--> = 350px-77px(card__body)
+          &__new{
+            left: 82%;
+          }
+      }
+
+  } 
+
+
+}
+
+/*###################################*/
+/*##########   TABLETTE   ###########*/
+/*###################################*/
+
+@media screen and (min-width : 768px) and (max-width : 1224px){
+
+  // deuxieme section RestaurantSearch
+
+  .restaurantSearch{
+    height: auto;
+    padding-bottom: 40px;
+  }
+
+  // troisieme section Fonctionning
+
+  .responsive{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+
+  .bloc{
+      width: 70%;
+    }
+
+  // quatrieme section Restaurant
+
+  .card__fill__new{     // est en position relative
+    left: 87%;
+  }
+
+
+}
