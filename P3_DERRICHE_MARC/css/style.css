@@ -36,14 +36,31 @@ a {
 header {
   height: 60px;
   width: 100%;
+  padding-left: 25px;
+  padding-right: 25px;
   display: flex;
-  justify-content: center;
 }
 header .logo {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+header img {
   margin-top: 15px;
   margin-bottom: 15px;
   height: auto;
   width: auto;
+}
+header a {
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  width: 0%;
+}
+header i {
+  font-size: 20px;
 }
 
 @media screen and (min-width: 1224px) {
@@ -136,18 +153,7 @@ header .logo {
   align-items: center;
 }
 .restaurantSearch__btn {
-  height: 50px;
   width: 220px;
-  border-radius: 50px;
-  color: white;
-  border: none;
-  margin-top: 15px;
-  font-family: "Roboto";
-  background: linear-gradient(#DD79DA, #9356DC);
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-}
-.restaurantSearch__btn:hover {
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
 }
 .restaurantSearch h1 {
   width: 75%;
@@ -239,9 +245,7 @@ header .logo {
 }
 
 .card__fill {
-  object-fit: scale-down;
   height: 175px;
-  width: 100%;
 }
 .card__fill__new {
   width: 80px;
@@ -382,6 +386,202 @@ header .logo {
     left: 87%;
   }
 }
+/*###################################*/
+/*#####        HEADER       #########*/
+/*###################################*/
+/*###################################*/
+/*## Section 1 Restaurant picture  ##*/
+/*###################################*/
+.restaurant-picture {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+}
+.restaurant-picture img {
+  object-fit: cover;
+  height: 275px;
+  width: 100%;
+}
+
+/*###################################*/
+/*#### Section 2 Restaurant MENU ####*/
+/*###################################*/
+.restaurant-menu {
+  position: relative;
+  z-index: 2;
+  margin-top: -57px;
+  width: 100%;
+  height: auto;
+  padding-top: 32px;
+  padding-bottom: 75px;
+  background-color: #f6f6f6;
+  border-radius: 40px 40px 0px 0px;
+}
+
+.restaurant__name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 18px;
+  margin-right: 18px;
+}
+.restaurant__name h1 {
+  font-family: "Shrikhand";
+  font-size: 29px;
+  margin: 0px;
+}
+
+.menu__title {
+  margin-top: 35px;
+  margin-bottom: 15px;
+  margin-left: 18px;
+  margin-right: 18px;
+}
+.menu__title h2 {
+  font-weight: 300;
+  font-size: 16px;
+  margin: 0;
+}
+.menu__title--border {
+  border-bottom: 3px solid #99E2D0;
+  width: 40px;
+  padding-bottom: 6px;
+}
+
+.selection {
+  height: 70px;
+  margin-bottom: 14px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.selection:hover {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.menu-bloc {
+  height: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.menu-bloc__title {
+  margin: 0;
+  font-weight: normal;
+}
+.menu-bloc__description {
+  display: flex;
+  justify-content: space-between;
+}
+.menu-bloc__description p {
+  margin: 0px;
+  font-weight: lighter;
+  font-size: 15px;
+}
+.menu-bloc__description .price {
+  font-weight: normal;
+}
+
+.menu-bloc-check {
+  height: 100%;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #99E2D0;
+}
+.menu-bloc-check .check-icone {
+  font-size: 22px;
+}
+
+.position-center {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+.position-center .btn--commande {
+  width: 190px;
+}
+
+/*####################################*/
+/*##########    FOOTER    ###########*/
+/*###################################*/
+/*####################################*/
+/*##########    DESKTOP   ###########*/
+/*###################################*/
+@media screen and (min-width: 1224px) {
+  .body {
+    display: flex;
+  }
+
+  .max-size-desktop {
+    width: 1225px;
+  }
+
+  .restaurant-picture img {
+    height: 600px;
+  }
+
+  .restaurant-menu {
+    display: flex;
+    justify-content: center;
+    border-radius: 0px;
+  }
+  .restaurant-menu .max-size-desktop {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .restaurant-menu .restaurant__name {
+    width: 100%;
+  }
+  .restaurant-menu .menu-responsive {
+    width: 33%;
+  }
+}
+/*###################################*/
+/*##########   TABLETTE   ###########*/
+/*###################################*/
+@media screen and (min-width: 768px) and (max-width: 1224px) {
+  .restaurant-picture img {
+    height: 450px;
+  }
+
+  .menu-responsive {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu {
+    width: 70%;
+  }
+}
 /*  PROJET EN MOBILE FIRST */
+.btn {
+  height: 50px;
+  border-radius: 50px;
+  color: white;
+  border: none;
+  margin-top: 15px;
+  font-family: "Roboto";
+  background: linear-gradient(#DD79DA, #9356DC);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+.btn:hover {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+}
 
 /*# sourceMappingURL=style.css.map */

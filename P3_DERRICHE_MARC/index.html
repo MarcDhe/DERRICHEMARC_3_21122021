@@ -12,8 +12,10 @@
 
   <body>
     <!-- Header -->
-    <header>
-      <img class=logo src="images/logo/ohmyfood.png" alt="logo" title="ohmyfood"/>
+    <header class="max-size-desktop">
+      <div class="logo">
+        <img  src="images/logo/ohmyfood.png" alt="logo" title="ohmyfood"/>
+      </div>
     </header>
     
     <!-- section 1 position -->
@@ -26,7 +28,7 @@
     <section class="restaurantSearch">
       <h1>Réservez le menu qui vous convient</h1>
       <p>Découvrez des restaurants d'exception, selectionés par nos soins</p>
-      <button class="restaurantSearch__btn">Explorer nos restaurants</button> 
+      <button class="btn restaurantSearch__btn">Explorer nos restaurants</button>  <!-- btn dans main.scss-->
     </section>
 
     <!-- Section 3 fontionning -->
@@ -100,7 +102,7 @@
             </article>
           </a>
           <!--  -->
-          <a href="">       <!-- proprietée de <a> css dans le _form -->
+          <a href="a-la-francaise.html">       <!-- proprietée de <a> css dans le _form -->
             <article class="card">
               <div class="card__fill">
                 <img src="images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg" alt="La palette du goût" />
@@ -114,7 +116,7 @@
                     <p>Cité Rouge</p>
                   </div>
                 </div>
-                  <i class="far fa-heart card__body__like"></i> <!-- heart icone-->
+                  <i class="far fa-heart card__body__like"></i> <!-- heart icone attention code dans toute les page regrouper ?-->
               </div>
             </article>
           </a>

@@ -2,16 +2,36 @@
 /*#########   Header      ###########*/
 /*###################################*/
 
-header{
-  height: 60px;
+ // difficulté: aligner le logo  au centre tout en plaçant
+// la fleche return et gardant la position sans fleche sur accueil
+
+header{                     
+  height: 60px;             
   width: 100%;
+  padding-left: 25px;       // padding qui demarquera la fleche sur le côté
+  padding-right: 25px;
   display: flex;
-  justify-content: center;
-  .logo{
+  .logo{                  // premier bloc contenant l'img du logo
+    height: 60px;
+    width: 100%;            // défini a 100% important qu'il fasse l'integralité de lespace possible
+    display: flex;         
+    justify-content: center;
+    z-index: 1;             // Important pour la mise en place du bouton cliquable
+  }
+  img{
     margin-top: 15px;
     margin-bottom: 15px;
     height: auto;
     width:  auto;
+  }
+  a{
+    display: flex;
+    align-items: center;
+    z-index: 2;             // fait passer le cliquable "par dessus" le bloc logo pour pouvoir le cliquer
+    width: 0%;              // le bloc fait 0px de large, cependant le overflaw par default laisse le contenu affiché, permettant la superposition des deux
+  }
+  i{
+    font-size: 20px;
   }
 }
 

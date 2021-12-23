@@ -1,0 +1,215 @@
+/*###################################*/
+/*#####        HEADER       #########*/
+/*###################################*/
+
+// cf _header.scss
+
+/*###################################*/
+/*## Section 1 Restaurant picture  ##*/
+/*###################################*/
+
+.restaurant-picture{
+  position: relative;   
+  z-index: 1;         // ne pas oublié z-index ne marche que si position relative/fix/absolute
+  width: 100%;
+  height: auto;
+  img{
+  object-fit: cover;
+  height: 275px;        // ajuster la taille ici puis faire remonté plus ou moins restaurant-menu
+  width: 100%;          // afin de pouvoir regler la "grosseur" de l'image
+  }
+}
+
+/*###################################*/
+/*#### Section 2 Restaurant MENU ####*/
+/*###################################*/
+
+.restaurant-menu{
+  position: relative;
+  z-index: 2;        // ne pas oublié z-index ne marche que si position relative/fix/absolute
+  margin-top: -57px; // fait remonté le bloc par dessus celui qui le précede
+  width: 100%;
+  height: auto;
+ // padding-left: 18px;  Tricky pas le meme padding sur l'article selection
+ // padding-right: 18px;
+  padding-top: 32px;
+  padding-bottom: 75px;
+  background-color: $color-background-primary;
+  border-radius:40px 40px 0px 0px;    
+}
+
+.restaurant__name{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 18px;  
+  margin-right: 18px;
+  
+  h1{
+    font-family: "Shrikhand";
+    font-size: 29px;
+    margin: 0px;
+    }
+}
+
+.menu__title{
+  margin-top:35px;
+  margin-bottom: 15px;
+  margin-left: 18px;  
+  margin-right: 18px;
+  h2{
+    font-weight: 300;
+    font-size: 16px;
+    margin: 0;
+  } 
+    &--border{         // nous allons encore une fois utilisé la propriété de overflow 
+      border-bottom: 3px solid $color-tertiary;      //pour faire le soulignement 
+      width: 40px;                                   //reduction taille menu__tilte
+      padding-bottom: 6px;
+    }
+}
+
+// parametrage petit bloc
+.selection{
+  height: 70px;
+  margin-bottom: 14px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: white;
+  @include shadow-border;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    &:hover{
+      @include shadow-border-hover;
+    }
+}
+
+.menu-bloc{
+  height: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+    &__title{
+      margin: 0;
+      font-weight: normal;
+    }
+    &__description{
+      display: flex;
+      justify-content: space-between;
+      p{
+        margin: 0px;
+        font-weight: lighter;
+        font-size: 15px;
+      }
+      .price{
+        font-weight: normal;
+      }
+  }
+}
+
+.menu-bloc-check{
+  height: 100%;
+  width: 60px;          // cette valeur pour déterminer l'animation (decallage lateral)
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: $color-tertiary;
+  .check-icone{
+    font-size: 22px;
+  }
+}
+
+// bouton Commander   
+ .position-center{
+  margin-top: 40px;
+   display: flex;
+   justify-content: center;
+    .btn--commande{  //"btn" de base dans le main.SCSS
+      width: 190px;
+    }
+ }
+
+/*####################################*/
+/*##########    FOOTER    ###########*/
+/*###################################*/
+
+//cf layout/_footer/scss
+
+/*####################################*/
+/*##########    DESKTOP   ###########*/
+/*###################################*/
+
+@media screen and (min-width : 1224px){
+  
+  //GENERAL 
+  .body{
+    display: flex;
+  }
+  .max-size-desktop{      // attention se retrouve aussi dans _accueil.scss
+    width: 1225px;
+  }
+
+  // Section 2 restaurant picture
+  .restaurant-picture{
+    img{
+      height: 600px;
+    }
+  }
+
+  //section 3
+
+  .restaurant-menu{
+    display: flex;
+    justify-content: center;
+    border-radius: 0px;
+      .max-size-desktop{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .restaurant__name{
+        width: 100%;
+      }
+      .menu-responsive{
+        width: 33%;
+      }
+  }
+}
+
+/*###################################*/
+/*##########   TABLETTE   ###########*/
+/*###################################*/
+
+@media screen and (min-width : 768px) and (max-width : 1224px){
+
+// Section 2 restaurant pîcture
+
+  .restaurant-picture{
+    img{
+      height: 450px;
+    }
+  }
+
+// Section 3 Restaurant Menu
+
+  .menu-responsive{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu{
+    width: 70%;           // valeur reprise du responsive tablette de l'accueil
+  }
+
+  
+
+}
