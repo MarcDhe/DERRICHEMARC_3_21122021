@@ -1,11 +1,16 @@
 @import "./utils/variables";
 @import "./utils/functions";
 @import "./utils/mixins";
-@import "./layout/form";
+@import "./utils/animations";
+@import "./layout/form";   // layout; agencement des elements
 @import "./layout/header";
 @import "./layout/footer";
+@import "./layout/likebtn";
 @import "./pages/accueil";
 @import "./pages/a-la-francaise";
+
+@import"./pages/try";
+
 
 
 /*  PROJET EN MOBILE FIRST */

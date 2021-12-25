@@ -1,0 +1,92 @@
+/* RAPPEL ordre:
+div {
+  transition: <property> <duration> <timing-function> <delay>;
+}*/
+
+// animation des bloc selection : affichage avec delay 
+
+@keyframes affichage-progressive{
+  0%{
+    
+  }
+  30%{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.selection__animation{
+  &--first{
+    opacity: 0;
+  animation: affichage-progressive 3000ms ease-out forwards; // east-out ralentissement en fin
+  }
+  &--second{
+    opacity: 0;
+  animation: affichage-progressive 3000ms 200ms ease-out forwards;  // forwards garde laspect de fin d'animation
+  }
+  &--third{
+    opacity: 0;
+    animation: affichage-progressive 3000ms 400ms ease-out forwards;
+  }
+} 
+
+
+// animation check : affichage avec translatex()
+
+@keyframes  check-valid-rotate{
+  0%{
+    transform: rotate(-180deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes check-valid-translate{
+  0%{
+    transform: translateX(0px);
+  }
+  100%{
+    transform: translateX(-60px);
+  }
+}
+
+.menu-bloc__translate{
+  position: relative;
+  left: 60px;
+}
+
+.selection:hover  .menu-bloc__translate{
+    animation: check-valid-translate 1000ms forwards;
+    
+}
+.selection:hover .rotate{
+  animation: check-valid-rotate 1000ms forwards;
+}
+
+
+/*###################################*/
+/*########  ANIMATION HEART  ########*/
+/*###################################*/
+
+@keyframes no-opacity{
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+@keyframes get-opacity {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+  
+}

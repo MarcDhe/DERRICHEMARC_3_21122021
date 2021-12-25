@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="css/style.css">
       <title>Menu - À la française</title>
   </head>
-
+<!-- ATTENTION RESTE UNE ANIME REUDCTION TEXT 3 PETITs POINTS -->
   <body>
     <!-- Header -->
     <header class="max-size-desktop">
@@ -31,7 +31,13 @@
       <div class="max-size-desktop">  <!-- pour responsive-->
         <div class="restaurant__name">
           <h1>À la française</h1>
-          <i class="far fa-heart card__body__like"></i> <!-- heart icone attention code dans toute les page regrouper ?-->
+          <div class="like__btn">
+            <input type="checkbox" id="like" /> <!-- crée une case a coché-->
+            <label for="like"> <!-- crée un label de checkbox cliqué sur le label renvoi a checkbox-->
+              <i class="far fa-heart heart heart__empty"></i> <!-- heart icone contour-->
+              <i class="fas fa-heart heart heart__full"></i>  <!-- heart icone pleine-->
+            </label>
+          </div>
         </div>
         <!-- ENTREES -->
         <div class="menu-responsive">         <!-- responsive -->
@@ -40,42 +46,48 @@
               <h2>ENTRÉES</h2>
             </div>
             <!--  -->
-            <article class="selection">                   <!-- nom class à revoir pas top-->
+            <article class="selection selection__animation--first">                   <!-- nom class à revoir pas top-->
               <div class="menu-bloc">
                 <h3 class="menu-bloc__title">Tartare de poulpe acidulé</h3>
                 <div class="menu-bloc__description">
                   <p>Aux zests d'orange</p>
-                  <p class="price">25€</p>
                 </div>
               </div>
-              <div class="menu-bloc-check">
-                <i class="fas fa-check-circle check-icone"></i>
+              <div class="menu-bloc__translate"> <!-- class dans animations.scss-->
+                <p class="price">25€</p>
+                <div class="menu-bloc-check">
+                  <i class="fas fa-check-circle check-icone rotate"></i>
+                </div>
               </div>
             </article>
             <!--  -->
-            <article class="selection">                   <!-- nom class à revoir pas top-->
+            <article class="selection selection__animation--second">                   <!-- nom class à revoir pas top-->
               <div class="menu-bloc">
                 <h3 class="menu-bloc__title">Velouté de légumes d'antan</h3>
                 <div class="menu-bloc__description">
                   <p>Carotte, panais, topinambour</p>
-                  <p class="price">35€</p>
                 </div>
               </div>
-              <div class="menu-bloc-check">
-                <i class="fas fa-check-circle check-icone"></i>
+              <div class="menu-bloc__translate">
+                <p class="price">35€</p>
+                <div class="menu-bloc-check">
+                  <i class="fas fa-check-circle check-icone rotate"></i>
+                </div>
               </div>
             </article>
             <!--  -->
-            <article class="selection">                   <!-- nom class à revoir pas top-->
+            <article class="selection selection__animation--third">                   <!-- nom class à revoir pas top-->
               <div class="menu-bloc">
                 <h3 class="menu-bloc__title">Soupe à l'oignon</h3>
                 <div class="menu-bloc__description">
                   <p>Revisitée</p>
-                  <p class="price">20€</p>
                 </div>
               </div>
-              <div class="menu-bloc-check">
-                <i class="fas fa-check-circle check-icone"></i>
+              <div class="menu-bloc__translate">
+                <p class="price">20€</p>
+                <div class="menu-bloc-check">
+                  <i class="fas fa-check-circle check-icone rotate"></i>
+                </div>
               </div>
             </article>
           </div>
@@ -88,42 +100,48 @@
               <h2>PLATS</h2>
             </div>
             <!--  -->
-            <article class="selection">                   <!-- nom class à revoir pas top-->
+            <article class="selection selection__animation--first">                   <!-- nom class à revoir pas top-->
               <div class="menu-bloc">
                 <h3 class="menu-bloc__title">Coquilles Saint-Jacques</h3>
                 <div class="menu-bloc__description">
                   <p>Accompagnées d'une purée de panais</p>
-                  <p class="price">40€</p>
                 </div>
               </div>
-              <div class="menu-bloc-check">
-                <i class="fas fa-check-circle check-icone"></i>
+              <div class="menu-bloc__translate">
+                <p class="price">40€</p>
+                <div class="menu-bloc-check">
+                  <i class="fas fa-check-circle check-icone rotate"></i>
+                </div>
               </div>
             </article>
             <!--  -->
-            <article class="selection">                   <!-- nom class à revoir pas top-->
+            <article class="selection selection__animation--second">                   <!-- nom class à revoir pas top-->
               <div class="menu-bloc">
                 <h3 class="menu-bloc__title">Magret de canard</h3>
                 <div class="menu-bloc__description">
                   <p>Et parmentier de pommes de terre</p>
-                  <p class="price">35€</p>
                 </div>
               </div>
-              <div class="menu-bloc-check">
-                <i class="fas fa-check-circle check-icone"></i>
+              <div class="menu-bloc__translate">
+                <p class="price">35€</p>
+                <div class="menu-bloc-check">
+                  <i class="fas fa-check-circle check-icone rotate"></i>
+                </div>
               </div>
             </article>
             <!--  -->
-            <article class="selection">                   <!-- nom class à revoir pas top-->
+            <article class="selection selection__animation--third">                   <!-- nom class à revoir pas top-->
               <div class="menu-bloc">
                 <h3 class="menu-bloc__title">Pigeonneau d’Ille-et-Vilaine</h3>
                 <div class="menu-bloc__description">
                   <p>Sur son lit de gnocchis aux légumes</p>
-                  <p class="price">44€</p>
                 </div>
               </div>
-              <div class="menu-bloc-check">
-                <i class="fas fa-check-circle check-icone"></i>
+              <div class="menu-bloc__translate">
+                <p class="price">44€</p>
+                <div class="menu-bloc-check">
+                  <i class="fas fa-check-circle check-icone rotate"></i>
+                </div>
               </div>
             </article>
           </div>
@@ -136,42 +154,48 @@
               <h2>DESSERTS</h2>
             </div>
             <!--  -->
-            <article class="selection">                   <!-- nom class à revoir pas top-->
+            <article class="selection selection__animation--first">                   <!-- nom class à revoir pas top-->
               <div class="menu-bloc">
                 <h3 class="menu-bloc__title">Pétales de violettes glacés</h3>
                 <div class="menu-bloc__description">
                   <p>Et purée de noisettes</p>
-                  <p class="price">18€</p>
                 </div>
               </div>
-              <div class="menu-bloc-check">
-                <i class="fas fa-check-circle check-icone"></i>
+              <div class="menu-bloc__translate">
+                <p class="price">18€</p>
+                <div class="menu-bloc-check">
+                  <i class="fas fa-check-circle check-icone rotate"></i>
+                </div>
               </div>
             </article>
             <!--  -->
-            <article class="selection">                   <!-- nom class à revoir pas top-->
+            <article class="selection selection__animation--second">                   <!-- nom class à revoir pas top-->
               <div class="menu-bloc">
                 <h3 class="menu-bloc__title">Fondant au chocolat</h3>
                 <div class="menu-bloc__description">
                   <p>Revisité</p>
-                  <p class="price">22€</p>
                 </div>
               </div>
-              <div class="menu-bloc-check">
-                <i class="fas fa-check-circle check-icone"></i>
+              <div class="menu-bloc__translate">
+                <p class="price">22€</p>
+                <div class="menu-bloc-check">
+                  <i class="fas fa-check-circle check-icone rotate"></i>
+                </div>
               </div>
             </article>
             <!--  -->
-            <article class="selection">                   <!-- nom class à revoir pas top-->
+            <article class="selection selection__animation--third">                   <!-- nom class à revoir pas top-->
               <div class="menu-bloc">
                 <h3 class="menu-bloc__title">Millefeuille croustillant</h3>
                 <div class="menu-bloc__description">
                   <p>Myrtilles et pâte d’amande</p>
-                  <p class="price">23€</p>
                 </div>
               </div>
-              <div class="menu-bloc-check">
-                <i class="fas fa-check-circle check-icone"></i>
+              <div class="menu-bloc__translate">
+                <p class="price">23€</p>
+                <div class="menu-bloc-check">
+                  <i class="fas fa-check-circle check-icone rotate"></i>
+                </div>
               </div>
             </article>
           </div>

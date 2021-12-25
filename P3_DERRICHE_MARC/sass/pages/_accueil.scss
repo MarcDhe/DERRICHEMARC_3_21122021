@@ -71,6 +71,8 @@
   }
 }
 
+
+
 .bloc{
   height: 75px;
   margin-left: 30px;
@@ -84,6 +86,9 @@
     &:hover{
       @include shadow-border-hover;
       background: $color-background-secondary;
+    }
+    &:hover .bloc__icone{
+      color: $color-primary;
     }
     &__numero{
       background-color: $color-primary;
@@ -106,7 +111,7 @@
           font-size: 15px;
           margin-left: 23px;
           margin-right: 24px;
-        }
+        }  
     }
 }
 
@@ -174,17 +179,6 @@
   align-items: center;              
   margin-left: 10px;
   margin-right: 10px;
-    &__like{
-      margin-right: 10px;
-      font-size: 25px;
-      color: linear-gradient($color-background-gradient);
-        &:hover{  // soucis a regler ici sur le hover
-          text-transform: uppercase;
-          background: linear-gradient($color-background-gradient);
-          -webkit-text-fill-color: transparent;
-
-        }
-    }
   h3{
     margin: 0;
     padding-bottom: 5px;
@@ -193,11 +187,10 @@
   p{
     margin: 0;
     font-weight: 100;
-    
-  }   
+  } 
 }
 
-
+//like__btn cf _likebtn.scss
 
 /*###################################*/
 /*###########  FOOTER    ############*/
@@ -310,6 +303,5 @@
   .card__fill__new{     // est en position relative
     left: 87%;
   }
-
 
 }

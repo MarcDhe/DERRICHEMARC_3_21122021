@@ -1,8 +1,83 @@
+/* RAPPEL ordre:
+div {
+  transition: <property> <duration> <timing-function> <delay>;
+}*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+@keyframes affichage-progressive {
+  30% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.selection__animation--first {
+  opacity: 0;
+  animation: affichage-progressive 3000ms ease-out forwards;
+}
+.selection__animation--second {
+  opacity: 0;
+  animation: affichage-progressive 3000ms 200ms ease-out forwards;
+}
+.selection__animation--third {
+  opacity: 0;
+  animation: affichage-progressive 3000ms 400ms ease-out forwards;
+}
+
+@keyframes check-valid-rotate {
+  0% {
+    transform: rotate(-180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes check-valid-translate {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-60px);
+  }
+}
+.menu-bloc__translate {
+  position: relative;
+  left: 60px;
+}
+
+.selection:hover .menu-bloc__translate {
+  animation: check-valid-translate 1000ms forwards;
+}
+
+.selection:hover .rotate {
+  animation: check-valid-rotate 1000ms forwards;
+}
+
+/*###################################*/
+/*########  ANIMATION HEART  ########*/
+/*###################################*/
+@keyframes no-opacity {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes get-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 /*###################################*/
 /*#########   GOOGLE FONT  ##########*/
 /*###################################*/
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 p, h2, h3, strong, li {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
@@ -20,6 +95,7 @@ p, h2, h3, strong, li {
   /* Safari/chrome, autre webkit */
 }
 
+/*###################################*/
 body {
   margin: 0px;
   padding: 0px;
@@ -114,6 +190,95 @@ header i {
     justify-content: center;
   }
 }
+.like__btn {
+  height: 25px;
+  width: 25px;
+}
+.like__btn .heart {
+  font-size: 25px;
+}
+.like__btn .heart__empty {
+  opacity: 1;
+  position: relative;
+  top: 0;
+  font-weight: 300;
+}
+.like__btn .heart__full {
+  opacity: 0;
+  position: relative;
+  top: -25px;
+  background: linear-gradient(#DD79DA, #9356DC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+label {
+  cursor: pointer;
+}
+
+#like {
+  display: none;
+}
+
+#like:checked + label .heart__empty {
+  animation: no-opacity 200ms forwards;
+}
+
+#like:checked + label .heart__full {
+  animation: get-opacity 200ms 100ms forwards;
+}
+
+/*###################################*/
+/*#####  like__btn accueil  #########*/
+/*###################################*/
+#like__la-palettte-du-gout {
+  display: none;
+}
+
+#like__la-palettte-du-gout:checked + label .heart__empty {
+  animation: no-opacity 200ms forwards;
+}
+
+#like__la-palettte-du-gout:checked + label .heart__full {
+  animation: get-opacity 200ms 100ms forwards;
+}
+
+#like__la-note-enchantee {
+  display: none;
+}
+
+#like__la-note-enchantee:checked + label .heart__empty {
+  animation: no-opacity 200ms forwards;
+}
+
+#like__la-note-enchantee:checked + label .heart__full {
+  animation: get-opacity 200ms 100ms forwards;
+}
+
+#like__a-la-francaise {
+  display: none;
+}
+
+#like__a-la-francaise:checked + label .heart__empty {
+  animation: no-opacity 200ms forwards;
+}
+
+#like__a-la-francaise:checked + label .heart__full {
+  animation: get-opacity 200ms 100ms forwards;
+}
+
+#like__les-delices-des-sens {
+  display: none;
+}
+
+#like__les-delices-des-sens:checked + label .heart__empty {
+  animation: no-opacity 200ms forwards;
+}
+
+#like__les-delices-des-sens:checked + label .heart__full {
+  animation: get-opacity 200ms 100ms forwards;
+}
+
 /*###################################*/
 /*#########   Header  ###########*/
 /*###################################*/
@@ -193,6 +358,9 @@ header i {
 .bloc:hover {
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
   background: #f2edff;
+}
+.bloc:hover .bloc__icone {
+  color: #9356DC;
 }
 .bloc__numero {
   background-color: #9356DC;
@@ -277,16 +445,6 @@ header i {
   align-items: center;
   margin-left: 10px;
   margin-right: 10px;
-}
-.card__body__like {
-  margin-right: 10px;
-  font-size: 25px;
-  color: linear-gradient(#DD79DA, #9356DC);
-}
-.card__body__like:hover {
-  text-transform: uppercase;
-  background: linear-gradient(#DD79DA, #9356DC);
-  -webkit-text-fill-color: transparent;
 }
 .card__body h3 {
   margin: 0;
@@ -432,6 +590,40 @@ header i {
   margin: 0px;
 }
 
+/* .like__btn{
+  position: relative;
+  cursor: pointer;  //important pour avoir le curseur qui passe en doigt
+  height: 25px;
+  width: 25px;
+  .heart{
+    font-size: 25px;
+      &__empty{
+        opacity: 1;
+        position: relative;
+        top: 0;
+        font-weight: 300;
+      }
+      &__full{
+        opacity: 0;
+        position: relative;
+        top:-25px;                  //aligne les 2 icones
+        // trouver sur internet
+        background: linear-gradient($color-background-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        //fin
+      }
+  }
+}
+.checkbox{
+  display: none;
+} */
+/*.like__btn:hover .heart__empty{   en pause pour l'instant
+  animation: no-opacity 200ms forwards;
+}
+.like__btn:checked .heart__full{
+  animation: get-opacity 200ms 200ms forwards;
+}*/
 .menu__title {
   margin-top: 35px;
   margin-bottom: 15px;
@@ -488,7 +680,16 @@ header i {
   font-weight: lighter;
   font-size: 15px;
 }
-.menu-bloc__description .price {
+
+.menu-bloc__translate {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+.menu-bloc__translate .price {
+  margin: 0;
+  padding-bottom: 8px;
+  margin-right: 10px;
   font-weight: normal;
 }
 

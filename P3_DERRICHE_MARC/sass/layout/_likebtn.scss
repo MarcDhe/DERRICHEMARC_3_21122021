@@ -1,0 +1,104 @@
+//DEBUT LIKE BUTTON
+
+.like__btn{
+  height: 25px;
+  width: 25px;
+  .heart{
+    font-size: 25px;
+      &__empty{
+        opacity: 1;
+        position: relative;
+        top: 0;
+        font-weight: 300;
+      }
+      &__full{
+        opacity: 0;
+        position: relative;
+        top:-25px;        //aligne les 2 icones
+        // trouver sur internet  car color ne peut avoir la propriete gradient
+        background: linear-gradient($color-background-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        //fin
+      }
+  }
+}
+
+label{
+  cursor: pointer; //important pour avoir le curseur qui passe en doigt
+}
+
+#like{       // affichage de la case coché ou non 
+  display: none;
+}
+
+#like:checked + label .heart__empty{  //si coché alors
+  animation: no-opacity 200ms forwards;
+}
+
+#like:checked + label .heart__full{  //si coché alors
+  animation: get-opacity 200ms 100ms forwards;
+}
+
+// fin like btn
+
+/*###################################*/
+/*#####  like__btn accueil  #########*/
+/*###################################*/
+
+//la palette du gout 
+
+#like__la-palettte-du-gout{
+ display: none;
+}
+// "+" uniquement les classes qui le suit
+#like__la-palettte-du-gout:checked +  label .heart__empty{  //si coché alors 
+  animation: no-opacity 200ms forwards;
+}
+
+#like__la-palettte-du-gout:checked + label .heart__full{  //si coché alors
+  animation: get-opacity 200ms 100ms forwards;
+}
+
+
+// la note enchantee
+
+#like__la-note-enchantee{       // affichage de la case coché ou non 
+  display: none;
+}
+
+#like__la-note-enchantee:checked + label .heart__empty{  //si coché alors
+  animation: no-opacity 200ms forwards;
+}
+
+#like__la-note-enchantee:checked + label .heart__full{  //si coché alors
+  animation: get-opacity 200ms 100ms forwards;
+}
+
+// A la francaise
+
+#like__a-la-francaise{       // affichage de la case coché ou non 
+  display: none;
+}
+
+#like__a-la-francaise:checked + label .heart__empty{  //si coché alors
+  animation: no-opacity 200ms forwards;
+}
+
+#like__a-la-francaise:checked + label .heart__full{  //si coché alors
+  animation: get-opacity 200ms 100ms forwards;
+}
+
+// Les délice des sens
+
+#like__les-delices-des-sens{       // affichage de la case coché ou non 
+  display: none;
+}
+
+#like__les-delices-des-sens:checked + label .heart__empty{  //si coché alors
+  animation: no-opacity 200ms forwards;
+}
+
+#like__les-delices-des-sens:checked + label .heart__full{  //si coché alors
+  animation: get-opacity 200ms 100ms forwards;
+}
