@@ -1,4 +1,4 @@
-//DEBUT LIKE BUTTON
+//DEBUT LIKE BUTTON standard
 
 .like__btn{
   height: 25px;
@@ -14,7 +14,7 @@
       &__full{
         opacity: 0;
         position: relative;
-        top:-25px;        //aligne les 2 icones
+        top:-26px;        //aligne les 2 icones
         // trouver sur internet  car color ne peut avoir la propriete gradient
         background: linear-gradient($color-background-gradient);
         -webkit-background-clip: text;
@@ -37,10 +37,10 @@ label{
 }
 
 #like:checked + label .heart__full{  //si coché alors
-  animation: get-opacity 200ms 100ms forwards;
+  animation: get-opacity 400ms 100ms forwards;
 }
 
-// fin like btn
+// fin like btn standard
 
 /*###################################*/
 /*#####  like__btn accueil  #########*/
@@ -57,7 +57,7 @@ label{
 }
 
 #like__la-palettte-du-gout:checked + label .heart__full{  //si coché alors
-  animation: get-opacity 200ms 100ms forwards;
+  animation: get-opacity 400ms 100ms forwards;
 }
 
 
@@ -72,7 +72,7 @@ label{
 }
 
 #like__la-note-enchantee:checked + label .heart__full{  //si coché alors
-  animation: get-opacity 200ms 100ms forwards;
+  animation: get-opacity 400ms 100ms forwards;
 }
 
 // A la francaise
@@ -86,7 +86,7 @@ label{
 }
 
 #like__a-la-francaise:checked + label .heart__full{  //si coché alors
-  animation: get-opacity 200ms 100ms forwards;
+  animation: get-opacity 400ms 100ms forwards;
 }
 
 // Les délice des sens
@@ -100,5 +100,5 @@ label{
 }
 
 #like__les-delices-des-sens:checked + label .heart__full{  //si coché alors
-  animation: get-opacity 200ms 100ms forwards;
+  animation: get-opacity 400ms 100ms forwards;
 }

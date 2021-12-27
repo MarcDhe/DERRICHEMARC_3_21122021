@@ -1,0 +1,15 @@
+.btn{   // base du bouton utilisé dans toutes les pages
+  cursor: pointer; //important pour avoir le curseur qui passe en doigt
+  height:50px;
+  border-radius: 50px;
+  color: white;
+  border: none;
+  margin-top: 15px;
+  font-family: "Roboto";
+  @include background-gradient;
+  @include shadow-border;
+    &:hover{
+      @include shadow-border-hover;
+      filter: brightness(1.1);   //rend plus claire
+    }
+}

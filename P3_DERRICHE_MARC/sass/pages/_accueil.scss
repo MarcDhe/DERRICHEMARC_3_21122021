@@ -5,6 +5,28 @@
 
 // cf _header.scss
 
+
+/*###################################*/
+/*######  LOADING PAGE        #######*/
+/*###################################*/
+
+.load-icone{
+  margin: 15px;
+  color: $color-primary;
+}
+
+.loading{    //mettre position et le faire translate de 100%
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 100%;     // la page ne prend en compte 
+  background-color: white; 
+}
+
 /*###################################*/
 /*#####  Section 1 Position #########*/
 /*###################################*/

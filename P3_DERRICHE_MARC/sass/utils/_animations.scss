@@ -1,9 +1,12 @@
+/*############################################*/
+/*########  ANIMATION BLOC SELECTION ########*/
+/*###########################################*/
 /* RAPPEL ordre:
 div {
   transition: <property> <duration> <timing-function> <delay>;
 }*/
 
-// animation des bloc selection : affichage avec delay 
+// affichage avec delay 
 
 @keyframes affichage-progressive{
   0%{
@@ -18,23 +21,58 @@ div {
     transform: translateY(0);
   }
 }
-.selection__animation{
+
+
+$duration-animation-selection:2000ms;
+$delay-animation:200ms;
+
+$delay-list:(
+entrees: 0ms,
+plats: 1000ms,
+desserts: 2000ms
+);
+
+$i:1;
+
+@each $key, $value in $delay-list {
+  .animation__#{$key}{
+    &--first{
+      opacity: 0;
+    animation: affichage-progressive $duration-animation-selection $value ease-out forwards; // east-out ralentissement en fin
+    }
+    &--second{
+      opacity: 0;
+    animation: affichage-progressive $duration-animation-selection ($delay-animation + $value) ease-out forwards;  // forwards garde laspect de fin d'animation
+    }
+    &--third{
+      opacity: 0;
+      animation: affichage-progressive $duration-animation-selection (($delay-animation *2)+ $value) ease-out forwards;
+    }
+  } 
+  $i: $i + 1 ;
+}
+
+
+/*.selection__animation{
   &--first{
     opacity: 0;
-  animation: affichage-progressive 3000ms ease-out forwards; // east-out ralentissement en fin
+  animation: affichage-progressive $duration-animation-selection ease-out forwards; // east-out ralentissement en fin
   }
   &--second{
     opacity: 0;
-  animation: affichage-progressive 3000ms 200ms ease-out forwards;  // forwards garde laspect de fin d'animation
+  animation: affichage-progressive $duration-animation-selection $delay-animation ease-out forwards;  // forwards garde laspect de fin d'animation
   }
   &--third{
     opacity: 0;
-    animation: affichage-progressive 3000ms 400ms ease-out forwards;
+    animation: affichage-progressive $duration-animation-selection ($delay-animation *2) ease-out forwards;
+    @debug animation;
   }
-} 
+} */
 
-
-// animation check : affichage avec translatex()
+/*###################################*/
+/*########  ANIMATION CHECK  ########*/
+/*###################################*/
+//affichage avec translatex()
 
 @keyframes  check-valid-rotate{
   0%{
@@ -45,7 +83,7 @@ div {
   }
 }
 
-@keyframes check-valid-translate{
+@keyframes check-valid-translate{ 
   0%{
     transform: translateX(0px);
   }
@@ -89,4 +127,55 @@ div {
     opacity: 1;
   }
   
+}
+
+
+
+/*###################################*/
+/*########  LOADING PAGE     ########*/
+/*###################################*/
+
+@keyframes load{
+  0%{
+    color: $color-primary;
+    transform: scale(1);
+  }
+  50%{
+    color: $color-secondary;
+    transform: scale(2);
+  }
+  100%{
+    color: $color-primary;
+    transform: scale(1);
+  }
+}
+
+@keyframes go-away{
+  0%{
+    transform: translatex(0);
+  }
+  100%{
+    transform: translatex(100%);
+  }
+}
+
+
+.load-icone__1{
+animation: load 1s ease-in-out forwards;
+}
+
+.load-icone__2{
+  animation: load 1s 0.5s ease-in-out forwards;
+}
+
+.load-icone__3{
+  animation: load 1s 1s ease-in-out forwards;
+}
+
+.load-icone__4{
+  animation: load 1s 1.5s ease-in-out forwards;
+}
+
+.loading{
+  animation: go-away 0s 2s forwards;
 }

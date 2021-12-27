@@ -6,25 +6,12 @@
 @import "./layout/header";
 @import "./layout/footer";
 @import "./layout/likebtn";
+@import "./layout/standardbtn";
 @import "./pages/accueil";
 @import "./pages/a-la-francaise";
-
-@import"./pages/try";
+@import"./pages/try";  // a retirer overkill
 
 
 
 /*  PROJET EN MOBILE FIRST */
 
-.btn{   // base du bouton utilisé dans toutes les pages
-  height:50px;
-  border-radius: 50px;
-  color: white;
-  border: none;
-  margin-top: 15px;
-  font-family: "Roboto";
-  @include background-gradient;
-  @include shadow-border;
-    &:hover{
-      @include shadow-border-hover;
-    }
-}

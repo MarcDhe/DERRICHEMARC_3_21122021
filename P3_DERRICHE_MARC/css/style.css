@@ -1,3 +1,6 @@
+/*############################################*/
+/*########  ANIMATION BLOC SELECTION ########*/
+/*###########################################*/
 /* RAPPEL ordre:
 div {
   transition: <property> <duration> <timing-function> <delay>;
@@ -14,19 +17,63 @@ div {
     transform: translateY(0);
   }
 }
-.selection__animation--first {
+.animation__entrees--first {
   opacity: 0;
-  animation: affichage-progressive 3000ms ease-out forwards;
+  animation: affichage-progressive 2000ms 0ms ease-out forwards;
 }
-.selection__animation--second {
+.animation__entrees--second {
   opacity: 0;
-  animation: affichage-progressive 3000ms 200ms ease-out forwards;
+  animation: affichage-progressive 2000ms 200ms ease-out forwards;
 }
-.selection__animation--third {
+.animation__entrees--third {
   opacity: 0;
-  animation: affichage-progressive 3000ms 400ms ease-out forwards;
+  animation: affichage-progressive 2000ms 400ms ease-out forwards;
 }
 
+.animation__plats--first {
+  opacity: 0;
+  animation: affichage-progressive 2000ms 1000ms ease-out forwards;
+}
+.animation__plats--second {
+  opacity: 0;
+  animation: affichage-progressive 2000ms 1200ms ease-out forwards;
+}
+.animation__plats--third {
+  opacity: 0;
+  animation: affichage-progressive 2000ms 1400ms ease-out forwards;
+}
+
+.animation__desserts--first {
+  opacity: 0;
+  animation: affichage-progressive 2000ms 2000ms ease-out forwards;
+}
+.animation__desserts--second {
+  opacity: 0;
+  animation: affichage-progressive 2000ms 2200ms ease-out forwards;
+}
+.animation__desserts--third {
+  opacity: 0;
+  animation: affichage-progressive 2000ms 2400ms ease-out forwards;
+}
+
+/*.selection__animation{
+  &--first{
+    opacity: 0;
+  animation: affichage-progressive $duration-animation-selection ease-out forwards; // east-out ralentissement en fin
+  }
+  &--second{
+    opacity: 0;
+  animation: affichage-progressive $duration-animation-selection $delay-animation ease-out forwards;  // forwards garde laspect de fin d'animation
+  }
+  &--third{
+    opacity: 0;
+    animation: affichage-progressive $duration-animation-selection ($delay-animation *2) ease-out forwards;
+    @debug animation;
+  }
+} */
+/*###################################*/
+/*########  ANIMATION CHECK  ########*/
+/*###################################*/
 @keyframes check-valid-rotate {
   0% {
     transform: rotate(-180deg);
@@ -75,6 +122,51 @@ div {
     opacity: 1;
   }
 }
+/*###################################*/
+/*########  LOADING PAGE     ########*/
+/*###################################*/
+@keyframes load {
+  0% {
+    color: #9356DC;
+    transform: scale(1);
+  }
+  50% {
+    color: #DD79DA;
+    transform: scale(2);
+  }
+  100% {
+    color: #9356DC;
+    transform: scale(1);
+  }
+}
+@keyframes go-away {
+  0% {
+    transform: translatex(0);
+  }
+  100% {
+    transform: translatex(100%);
+  }
+}
+.load-icone__1 {
+  animation: load 1s ease-in-out forwards;
+}
+
+.load-icone__2 {
+  animation: load 1s 0.5s ease-in-out forwards;
+}
+
+.load-icone__3 {
+  animation: load 1s 1s ease-in-out forwards;
+}
+
+.load-icone__4 {
+  animation: load 1s 1.5s ease-in-out forwards;
+}
+
+.loading {
+  animation: go-away 0s 2s forwards;
+}
+
 /*###################################*/
 /*#########   GOOGLE FONT  ##########*/
 /*###################################*/
@@ -206,7 +298,7 @@ header i {
 .like__btn .heart__full {
   opacity: 0;
   position: relative;
-  top: -25px;
+  top: -26px;
   background: linear-gradient(#DD79DA, #9356DC);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -225,7 +317,7 @@ label {
 }
 
 #like:checked + label .heart__full {
-  animation: get-opacity 200ms 100ms forwards;
+  animation: get-opacity 400ms 100ms forwards;
 }
 
 /*###################################*/
@@ -240,7 +332,7 @@ label {
 }
 
 #like__la-palettte-du-gout:checked + label .heart__full {
-  animation: get-opacity 200ms 100ms forwards;
+  animation: get-opacity 400ms 100ms forwards;
 }
 
 #like__la-note-enchantee {
@@ -252,7 +344,7 @@ label {
 }
 
 #like__la-note-enchantee:checked + label .heart__full {
-  animation: get-opacity 200ms 100ms forwards;
+  animation: get-opacity 400ms 100ms forwards;
 }
 
 #like__a-la-francaise {
@@ -264,7 +356,7 @@ label {
 }
 
 #like__a-la-francaise:checked + label .heart__full {
-  animation: get-opacity 200ms 100ms forwards;
+  animation: get-opacity 400ms 100ms forwards;
 }
 
 #like__les-delices-des-sens {
@@ -276,12 +368,48 @@ label {
 }
 
 #like__les-delices-des-sens:checked + label .heart__full {
-  animation: get-opacity 200ms 100ms forwards;
+  animation: get-opacity 400ms 100ms forwards;
+}
+
+.btn {
+  cursor: pointer;
+  height: 50px;
+  border-radius: 50px;
+  color: white;
+  border: none;
+  margin-top: 15px;
+  font-family: "Roboto";
+  background: linear-gradient(#DD79DA, #9356DC);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+.btn:hover {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+  filter: brightness(1.1);
 }
 
 /*###################################*/
 /*#########   Header  ###########*/
 /*###################################*/
+/*###################################*/
+/*######  LOADING PAGE        #######*/
+/*###################################*/
+.load-icone {
+  margin: 15px;
+  color: #9356DC;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
 /*###################################*/
 /*#####  Section 1 Position #########*/
 /*###################################*/
@@ -590,40 +718,6 @@ label {
   margin: 0px;
 }
 
-/* .like__btn{
-  position: relative;
-  cursor: pointer;  //important pour avoir le curseur qui passe en doigt
-  height: 25px;
-  width: 25px;
-  .heart{
-    font-size: 25px;
-      &__empty{
-        opacity: 1;
-        position: relative;
-        top: 0;
-        font-weight: 300;
-      }
-      &__full{
-        opacity: 0;
-        position: relative;
-        top:-25px;                  //aligne les 2 icones
-        // trouver sur internet
-        background: linear-gradient($color-background-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        //fin
-      }
-  }
-}
-.checkbox{
-  display: none;
-} */
-/*.like__btn:hover .heart__empty{   en pause pour l'instant
-  animation: no-opacity 200ms forwards;
-}
-.like__btn:checked .heart__full{
-  animation: get-opacity 200ms 200ms forwards;
-}*/
 .menu__title {
   margin-top: 35px;
   margin-bottom: 15px;
@@ -668,7 +762,7 @@ label {
   justify-content: space-around;
 }
 .menu-bloc__title {
-  margin: 0;
+  margin: 0px;
   font-weight: normal;
 }
 .menu-bloc__description {
@@ -679,6 +773,9 @@ label {
   margin: 0px;
   font-weight: lighter;
   font-size: 15px;
+  /*overflow: hidden;       redefinir message
+  white-space: nowrap;
+  text-overflow: ellipsis;*/
 }
 
 .menu-bloc__translate {
@@ -770,19 +867,159 @@ label {
     width: 70%;
   }
 }
+#add__tartare-de-poulpe-acidule {
+  display: none;
+}
+
+#add__tartare-de-poulpe-acidule:checked ~ label .menu-bloc__translate {
+  animation: check-valid-translate 1000ms forwards;
+}
+
+#add__tartare-de-poulpe-acidule:checked ~ label .rotate {
+  animation: check-valid-rotate 1000ms forwards;
+}
+
+#add__veloute-de-legumes-dantan {
+  display: none;
+}
+
+#add__veloute-de-legumes-dantan:checked ~ label .menu-bloc__translate {
+  animation: check-valid-translate 1000ms forwards;
+}
+
+#add__veloute-de-legumes-dantan:checked ~ label .rotate {
+  animation: check-valid-rotate 1000ms forwards;
+}
+
+#add__soupe-a-loignon {
+  display: none;
+}
+
+#add__soupe-a-loignon:checked ~ label .menu-bloc__translate {
+  animation: check-valid-translate 1000ms forwards;
+}
+
+#add__soupe-a-loignon:checked ~ label .rotate {
+  animation: check-valid-rotate 1000ms forwards;
+}
+
+#add__coquilles-saint-jacques {
+  display: none;
+}
+
+#add__coquilles-saint-jacques:checked ~ label .menu-bloc__translate {
+  animation: check-valid-translate 1000ms forwards;
+}
+
+#add__coquilles-saint-jacques:checked ~ label .rotate {
+  animation: check-valid-rotate 1000ms forwards;
+}
+
+#add__marget-de-canard {
+  display: none;
+}
+
+#add__marget-de-canard:checked ~ label .menu-bloc__translate {
+  animation: check-valid-translate 1000ms forwards;
+}
+
+#add__marget-de-canard:checked ~ label .rotate {
+  animation: check-valid-rotate 1000ms forwards;
+}
+
+#add__pigeonneau-dille-et-vilaine {
+  display: none;
+}
+
+#add__pigeonneau-dille-et-vilaine:checked ~ label .menu-bloc__translate {
+  animation: check-valid-translate 1000ms forwards;
+}
+
+#add__pigeonneau-dille-et-vilaine:checked ~ label .rotate {
+  animation: check-valid-rotate 1000ms forwards;
+}
+
+#add__petale-deviolettes-glaces {
+  display: none;
+}
+
+#add__petale-deviolettes-glaces:checked ~ label .menu-bloc__translate {
+  animation: check-valid-translate 1000ms forwards;
+}
+
+#add__petale-deviolettes-glaces:checked ~ label .rotate {
+  animation: check-valid-rotate 1000ms forwards;
+}
+
+#add__fondant-au-chocolat {
+  display: none;
+}
+
+#add__fondant-au-chocolat:checked ~ label .menu-bloc__translate {
+  animation: check-valid-translate 1000ms forwards;
+}
+
+#add__fondant-au-chocolat:checked ~ label .rotate {
+  animation: check-valid-rotate 1000ms forwards;
+}
+
+#add__millefeuille-croustillant {
+  display: none;
+}
+
+#add__millefeuille-croustillant:checked ~ label .menu-bloc__translate {
+  animation: check-valid-translate 1000ms forwards;
+}
+
+#add__millefeuille-croustillant:checked ~ label .rotate {
+  animation: check-valid-rotate 1000ms forwards;
+}
+
+#add:checked ~ label .menu-bloc__translate {
+  animation: check-valid-translate 1000ms forwards;
+}
+
+#add:checked ~ label .rotate {
+  animation: check-valid-rotate 1000ms forwards;
+}
+
+/*###################################*/
+/*######  LOADING PAGE        #######*/
+/*###################################*/
+/*.loading{    //mettre position et le faire translate de 100%
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-color: white; 
+  animation: go-away 0s 2s forwards;
+}
+*/
+.texteu {
+  border: 1px solid black;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.texteu .redone {
+  background-color: red;
+  height: 20px;
+  min-width: 60px;
+}
+.texteu .heu {
+  background-color: blue;
+  overflow: hidden;
+}
+.texteu .heu p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 /*  PROJET EN MOBILE FIRST */
-.btn {
-  height: 50px;
-  border-radius: 50px;
-  color: white;
-  border: none;
-  margin-top: 15px;
-  font-family: "Roboto";
-  background: linear-gradient(#DD79DA, #9356DC);
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-}
-.btn:hover {
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
-}
 
 /*# sourceMappingURL=style.css.map */
