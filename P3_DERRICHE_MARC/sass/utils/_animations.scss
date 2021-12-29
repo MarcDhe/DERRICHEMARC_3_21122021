@@ -48,31 +48,21 @@ $i:1;
       opacity: 0;
       animation: affichage-progressive $duration-animation-selection (($delay-animation *2)+ $value) ease-out forwards;
     }
+    &--fourth{
+      opacity: 0;
+      animation: affichage-progressive $duration-animation-selection (($delay-animation *3)+ $value) ease-out forwards;
+    }
   } 
   $i: $i + 1 ;
 }
 
 
-/*.selection__animation{
-  &--first{
-    opacity: 0;
-  animation: affichage-progressive $duration-animation-selection ease-out forwards; // east-out ralentissement en fin
-  }
-  &--second{
-    opacity: 0;
-  animation: affichage-progressive $duration-animation-selection $delay-animation ease-out forwards;  // forwards garde laspect de fin d'animation
-  }
-  &--third{
-    opacity: 0;
-    animation: affichage-progressive $duration-animation-selection ($delay-animation *2) ease-out forwards;
-    @debug animation;
-  }
-} */
+
 
 /*###################################*/
 /*########  ANIMATION CHECK  ########*/
 /*###################################*/
-//affichage avec translatex()
+
 
 @keyframes  check-valid-rotate{
   0%{
@@ -83,26 +73,22 @@ $i:1;
   }
 }
 
-@keyframes check-valid-translate{ 
-  0%{
-    transform: translateX(0px);
+@keyframes check-valid-extand{  
+  0%{                              
+    width: 0px;
+    margin-left: 20px;
   }
   100%{
-    transform: translateX(-60px);
+   width: 60px;
+   margin-left: 10px;
   }
 }
 
-.menu-bloc__translate{
-  position: relative;
-  left: 60px;
+.selection:hover  .menu-bloc-check{
+animation: check-valid-extand 1000ms forwards; 
 }
-
-.selection:hover  .menu-bloc__translate{
-    animation: check-valid-translate 1000ms forwards;
-    
-}
-.selection:hover .rotate{
-  animation: check-valid-rotate 1000ms forwards;
+.selection:hover .check-icone{
+animation: check-valid-rotate 1000ms forwards;
 }
 
 
@@ -135,6 +121,16 @@ $i:1;
 /*########  LOADING PAGE     ########*/
 /*###################################*/
 
+@keyframes load-spinner{
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+
 @keyframes load{
   0%{
     color: $color-primary;
@@ -159,6 +155,13 @@ $i:1;
   }
 }
 
+.loading{
+  animation: go-away 0s 2s forwards;
+}
+
+.spinner{
+  animation: load-spinner 2s ease-in-out;
+}
 
 .load-icone__1{
 animation: load 1s ease-in-out forwards;
@@ -176,6 +179,3 @@ animation: load 1s ease-in-out forwards;
   animation: load 1s 1.5s ease-in-out forwards;
 }
 
-.loading{
-  animation: go-away 0s 2s forwards;
-}

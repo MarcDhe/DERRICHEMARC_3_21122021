@@ -1,31 +1,12 @@
 // mobile first screen de red en 375px
+
+
 /*###################################*/
 /*#########   Header  ###########*/
 /*###################################*/
 
 // cf _header.scss
 
-
-/*###################################*/
-/*######  LOADING PAGE        #######*/
-/*###################################*/
-
-.load-icone{
-  margin: 15px;
-  color: $color-primary;
-}
-
-.loading{    //mettre position et le faire translate de 100%
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  z-index: 3;
-  width: 100%;
-  height: 100%;     // la page ne prend en compte 
-  background-color: white; 
-}
 
 /*###################################*/
 /*#####  Section 1 Position #########*/
@@ -46,6 +27,7 @@
     }
     &__ville{
       margin: 0;
+      font-weight: normal;
       font-size: 15px;
     }
 }
@@ -156,37 +138,42 @@
 
 
 .card{
-  height: 252px;
+  height: $hauteur-card;
   width: 100%;
   margin-bottom: 18px;
   border-radius: 15px;
-  overflow: hidden;                   // contenu interieu depasse caché
+  overflow: hidden;                   // contenu interieur depasse caché
   @include shadow-border;
     &:hover{
       @include shadow-border-hover;
     }
-  
 }
 
+
+
 .card__fill{
-  height: 175px;                     // 252(card) - 77(card_body)
-    &__new{                     // mention 'nouveau'
-      width: 80px;
-      height: 28px;  
-      background: $color-tertiary;
-      border-radius: 2px;
-      position: relative;
-      top: -95%;            // indiquer en % permet qu'il reste "fix"  l'élargissemnt de la fenetre
-      left: 72%;          // simplifie le medi desktop et tablette
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  height:($hauteur_card - $hauteur_card_body);      
+  .ancrage-gauche{    // astuce affichage fix a droite "nouveau"
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    top: -96%;
+    right: 12px;
+  }
+  &__new{                     // mention 'nouveau'
+    width: 80px;
+    height: 28px;  
+    background: $color-tertiary;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
       p{
         font-size: 14px;
         margin: 0;
         color: darken($color-tertiary, 40%);  // avantage si changement couleur color-background-item changement aussi du <p>
       }
-    }
+  }
   img{
     object-fit: cover;
     height: 100%;
@@ -197,7 +184,7 @@
 .card__body{
   display: flex;
   justify-content: space-between;
-  height: 77px;                     // hautreurCard - hauteurCard__Fill obligatoire sinon ne prend pas l'integralité de la hauteur en auto
+  height: $hauteur-card-body;                   
   align-items: center;              
   margin-left: 10px;
   margin-right: 10px;
@@ -232,9 +219,6 @@
     align-items: center;
   }
 
-  .max-size-desktop{      // defini une taille max qui ce fera centrer par le body
-    width: 1225px;
-  }
 
     // deuxieme section RestaurantSearch
 
@@ -272,7 +256,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
-    a{
+    .card{
       width: 45%;
       margin-bottom: 20px;
     }
@@ -320,10 +304,6 @@
       width: 70%; // a reporter sur la version des autres pages pour crée une "harmonie"
     }
 
-  // quatrieme section Restaurant
 
-  .card__fill__new{     // est en position relative
-    left: 87%;
-  }
 
 }

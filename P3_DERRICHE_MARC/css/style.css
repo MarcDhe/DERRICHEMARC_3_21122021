@@ -1,3 +1,9 @@
+/*###################################*/
+/*######  VARIABLES COULEUR   #######*/
+/*###################################*/
+/*###################################*/
+/*######    VARIABLES CARD    #######*/
+/*###################################*/
 /*############################################*/
 /*########  ANIMATION BLOC SELECTION ########*/
 /*###########################################*/
@@ -29,6 +35,10 @@ div {
   opacity: 0;
   animation: affichage-progressive 2000ms 400ms ease-out forwards;
 }
+.animation__entrees--fourth {
+  opacity: 0;
+  animation: affichage-progressive 2000ms 600ms ease-out forwards;
+}
 
 .animation__plats--first {
   opacity: 0;
@@ -41,6 +51,10 @@ div {
 .animation__plats--third {
   opacity: 0;
   animation: affichage-progressive 2000ms 1400ms ease-out forwards;
+}
+.animation__plats--fourth {
+  opacity: 0;
+  animation: affichage-progressive 2000ms 1600ms ease-out forwards;
 }
 
 .animation__desserts--first {
@@ -55,22 +69,11 @@ div {
   opacity: 0;
   animation: affichage-progressive 2000ms 2400ms ease-out forwards;
 }
+.animation__desserts--fourth {
+  opacity: 0;
+  animation: affichage-progressive 2000ms 2600ms ease-out forwards;
+}
 
-/*.selection__animation{
-  &--first{
-    opacity: 0;
-  animation: affichage-progressive $duration-animation-selection ease-out forwards; // east-out ralentissement en fin
-  }
-  &--second{
-    opacity: 0;
-  animation: affichage-progressive $duration-animation-selection $delay-animation ease-out forwards;  // forwards garde laspect de fin d'animation
-  }
-  &--third{
-    opacity: 0;
-    animation: affichage-progressive $duration-animation-selection ($delay-animation *2) ease-out forwards;
-    @debug animation;
-  }
-} */
 /*###################################*/
 /*########  ANIMATION CHECK  ########*/
 /*###################################*/
@@ -82,24 +85,21 @@ div {
     transform: rotate(0deg);
   }
 }
-@keyframes check-valid-translate {
+@keyframes check-valid-extand {
   0% {
-    transform: translateX(0px);
+    width: 0px;
+    margin-left: 20px;
   }
   100% {
-    transform: translateX(-60px);
+    width: 60px;
+    margin-left: 10px;
   }
 }
-.menu-bloc__translate {
-  position: relative;
-  left: 60px;
+.selection:hover .menu-bloc-check {
+  animation: check-valid-extand 1000ms forwards;
 }
 
-.selection:hover .menu-bloc__translate {
-  animation: check-valid-translate 1000ms forwards;
-}
-
-.selection:hover .rotate {
+.selection:hover .check-icone {
   animation: check-valid-rotate 1000ms forwards;
 }
 
@@ -125,6 +125,14 @@ div {
 /*###################################*/
 /*########  LOADING PAGE     ########*/
 /*###################################*/
+@keyframes load-spinner {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 @keyframes load {
   0% {
     color: #9356DC;
@@ -147,6 +155,14 @@ div {
     transform: translatex(100%);
   }
 }
+.loading {
+  animation: go-away 0s 2s forwards;
+}
+
+.spinner {
+  animation: load-spinner 2s ease-in-out;
+}
+
 .load-icone__1 {
   animation: load 1s ease-in-out forwards;
 }
@@ -161,10 +177,6 @@ div {
 
 .load-icone__4 {
   animation: load 1s 1.5s ease-in-out forwards;
-}
-
-.loading {
-  animation: go-away 0s 2s forwards;
 }
 
 /*###################################*/
@@ -188,9 +200,12 @@ p, h2, h3, strong, li {
 }
 
 /*###################################*/
+/*#########    GENERAL    ###########*/
+/*###################################*/
 body {
   margin: 0px;
   padding: 0px;
+  overflow-x: hidden;
 }
 
 a {
@@ -198,6 +213,11 @@ a {
   color: black;
 }
 
+@media screen and (min-width: 1224px) {
+  .max-size-desktop {
+    width: 1225px;
+  }
+}
 /*###################################*/
 /*#########   Header      ###########*/
 /*###################################*/
@@ -388,16 +408,8 @@ label {
 }
 
 /*###################################*/
-/*#########   Header  ###########*/
-/*###################################*/
-/*###################################*/
 /*######  LOADING PAGE        #######*/
 /*###################################*/
-.load-icone {
-  margin: 15px;
-  color: #9356DC;
-}
-
 .loading {
   display: flex;
   flex-direction: column;
@@ -409,7 +421,30 @@ label {
   height: 100%;
   background-color: white;
 }
+.loading .spinner {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 3px solid #9356DC;
+  border-bottom: 3px solid #DD79DA;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-radius: 125px;
+}
+.loading p {
+  font-family: "Shrikhand";
+}
+.loading .load-icone {
+  margin: 15px;
+  color: #9356DC;
+}
 
+/*###################################*/
+/*#########   Header  ###########*/
+/*###################################*/
 /*###################################*/
 /*#####  Section 1 Position #########*/
 /*###################################*/
@@ -429,6 +464,7 @@ label {
 }
 .position__ville {
   margin: 0;
+  font-weight: normal;
   font-size: 15px;
 }
 
@@ -543,14 +579,18 @@ label {
 .card__fill {
   height: 175px;
 }
+.card__fill .ancrage-gauche {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  top: -96%;
+  right: 12px;
+}
 .card__fill__new {
   width: 80px;
   height: 28px;
   background: #99E2D0;
   border-radius: 2px;
-  position: relative;
-  top: -95%;
-  left: 72%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -597,10 +637,6 @@ label {
     align-items: center;
   }
 
-  .max-size-desktop {
-    width: 1225px;
-  }
-
   .restaurantSearch {
     height: auto;
     padding-bottom: 40px;
@@ -632,7 +668,7 @@ label {
     justify-content: space-around;
     width: 100%;
   }
-  .restaurant--flex a {
+  .restaurant--flex .card {
     width: 45%;
     margin-bottom: 20px;
   }
@@ -666,10 +702,6 @@ label {
 
   .bloc {
     width: 70%;
-  }
-
-  .card__fill__new {
-    left: 87%;
   }
 }
 /*###################################*/
@@ -736,6 +768,7 @@ label {
 }
 
 .selection {
+  cursor: pointer;
   height: 70px;
   margin-bottom: 14px;
   margin-left: 10px;
@@ -743,10 +776,10 @@ label {
   background-color: white;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
-  overflow: hidden;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
 }
 .selection:hover {
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
@@ -760,22 +793,22 @@ label {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  overflow: hidden;
 }
 .menu-bloc__title {
   margin: 0px;
   font-weight: normal;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .menu-bloc__description {
-  display: flex;
-  justify-content: space-between;
-}
-.menu-bloc__description p {
   margin: 0px;
   font-weight: lighter;
   font-size: 15px;
-  /*overflow: hidden;       redefinir message
+  overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;*/
+  text-overflow: ellipsis;
 }
 
 .menu-bloc__translate {
@@ -786,20 +819,19 @@ label {
 .menu-bloc__translate .price {
   margin: 0;
   padding-bottom: 8px;
-  margin-right: 10px;
   font-weight: normal;
 }
-
-.menu-bloc-check {
+.menu-bloc__translate .menu-bloc-check {
   height: 100%;
-  width: 60px;
+  width: 0px;
   display: flex;
+  margin-left: 20px;
   align-items: center;
   justify-content: center;
   color: white;
   background-color: #99E2D0;
 }
-.menu-bloc-check .check-icone {
+.menu-bloc__translate .menu-bloc-check .check-icone {
   font-size: 22px;
 }
 
@@ -821,10 +853,6 @@ label {
 @media screen and (min-width: 1224px) {
   .body {
     display: flex;
-  }
-
-  .max-size-desktop {
-    width: 1225px;
   }
 
   .restaurant-picture img {
@@ -867,159 +895,6 @@ label {
     width: 70%;
   }
 }
-#add__tartare-de-poulpe-acidule {
-  display: none;
-}
-
-#add__tartare-de-poulpe-acidule:checked ~ label .menu-bloc__translate {
-  animation: check-valid-translate 1000ms forwards;
-}
-
-#add__tartare-de-poulpe-acidule:checked ~ label .rotate {
-  animation: check-valid-rotate 1000ms forwards;
-}
-
-#add__veloute-de-legumes-dantan {
-  display: none;
-}
-
-#add__veloute-de-legumes-dantan:checked ~ label .menu-bloc__translate {
-  animation: check-valid-translate 1000ms forwards;
-}
-
-#add__veloute-de-legumes-dantan:checked ~ label .rotate {
-  animation: check-valid-rotate 1000ms forwards;
-}
-
-#add__soupe-a-loignon {
-  display: none;
-}
-
-#add__soupe-a-loignon:checked ~ label .menu-bloc__translate {
-  animation: check-valid-translate 1000ms forwards;
-}
-
-#add__soupe-a-loignon:checked ~ label .rotate {
-  animation: check-valid-rotate 1000ms forwards;
-}
-
-#add__coquilles-saint-jacques {
-  display: none;
-}
-
-#add__coquilles-saint-jacques:checked ~ label .menu-bloc__translate {
-  animation: check-valid-translate 1000ms forwards;
-}
-
-#add__coquilles-saint-jacques:checked ~ label .rotate {
-  animation: check-valid-rotate 1000ms forwards;
-}
-
-#add__marget-de-canard {
-  display: none;
-}
-
-#add__marget-de-canard:checked ~ label .menu-bloc__translate {
-  animation: check-valid-translate 1000ms forwards;
-}
-
-#add__marget-de-canard:checked ~ label .rotate {
-  animation: check-valid-rotate 1000ms forwards;
-}
-
-#add__pigeonneau-dille-et-vilaine {
-  display: none;
-}
-
-#add__pigeonneau-dille-et-vilaine:checked ~ label .menu-bloc__translate {
-  animation: check-valid-translate 1000ms forwards;
-}
-
-#add__pigeonneau-dille-et-vilaine:checked ~ label .rotate {
-  animation: check-valid-rotate 1000ms forwards;
-}
-
-#add__petale-deviolettes-glaces {
-  display: none;
-}
-
-#add__petale-deviolettes-glaces:checked ~ label .menu-bloc__translate {
-  animation: check-valid-translate 1000ms forwards;
-}
-
-#add__petale-deviolettes-glaces:checked ~ label .rotate {
-  animation: check-valid-rotate 1000ms forwards;
-}
-
-#add__fondant-au-chocolat {
-  display: none;
-}
-
-#add__fondant-au-chocolat:checked ~ label .menu-bloc__translate {
-  animation: check-valid-translate 1000ms forwards;
-}
-
-#add__fondant-au-chocolat:checked ~ label .rotate {
-  animation: check-valid-rotate 1000ms forwards;
-}
-
-#add__millefeuille-croustillant {
-  display: none;
-}
-
-#add__millefeuille-croustillant:checked ~ label .menu-bloc__translate {
-  animation: check-valid-translate 1000ms forwards;
-}
-
-#add__millefeuille-croustillant:checked ~ label .rotate {
-  animation: check-valid-rotate 1000ms forwards;
-}
-
-#add:checked ~ label .menu-bloc__translate {
-  animation: check-valid-translate 1000ms forwards;
-}
-
-#add:checked ~ label .rotate {
-  animation: check-valid-rotate 1000ms forwards;
-}
-
-/*###################################*/
-/*######  LOADING PAGE        #######*/
-/*###################################*/
-/*.loading{    //mettre position et le faire translate de 100%
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  background-color: white; 
-  animation: go-away 0s 2s forwards;
-}
-*/
-.texteu {
-  border: 1px solid black;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-.texteu .redone {
-  background-color: red;
-  height: 20px;
-  min-width: 60px;
-}
-.texteu .heu {
-  background-color: blue;
-  overflow: hidden;
-}
-.texteu .heu p {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
 /*  PROJET EN MOBILE FIRST */
 
 /*# sourceMappingURL=style.css.map */

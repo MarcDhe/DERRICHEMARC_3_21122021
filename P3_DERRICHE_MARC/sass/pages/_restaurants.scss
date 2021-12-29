@@ -14,9 +14,9 @@
   width: 100%;
   height: auto;
   img{
-  object-fit: cover;
-  height: 275px;        // ajuster la taille ici puis faire remonté plus ou moins restaurant-menu
-  width: 100%;          // afin de pouvoir regler la "grosseur" de l'image
+    object-fit: cover;
+    height: 275px;        // ajuster la taille ici puis faire remonté plus ou moins restaurant-menu
+    width: 100%;          // afin de pouvoir regler la "grosseur" de l'image
   }
 }
 
@@ -72,6 +72,7 @@
 
 // parametrage petit bloc
 .selection{
+  cursor: pointer;
   height: 70px;
   margin-bottom: 14px;
   margin-left: 10px;
@@ -79,10 +80,10 @@
   background-color: white;
   @include shadow-border;
   border-radius: 15px;
-  overflow: hidden;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
     &:hover{
       @include shadow-border-hover;
 
@@ -97,23 +98,21 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  overflow: hidden;                 // nécéssaire aussi pour le bon fonctionement de whitespace plus loin
     &__title{
       margin: 0px;
       font-weight: normal;
+      overflow: hidden;             //
+      white-space: nowrap;          // empeche le retour a la ligne
+      text-overflow: ellipsis;      // mes les 3 petits points
     }
     &__description{
-      display: flex;
-      justify-content: space-between;
-      p{
         margin: 0px;
         font-weight: lighter;
-        font-size: 15px;
-        
-        /*overflow: hidden;       redefinir message
+        font-size: 15px; 
+        overflow: hidden;
         white-space: nowrap;
-        text-overflow: ellipsis;*/
-
-      }
+        text-overflow: ellipsis;  
   }
 }
 
@@ -124,22 +123,20 @@
   .price{
     margin:0;
     padding-bottom: 8px;
-    margin-right: 10px;
     font-weight: normal;
-    
   }
-}
-
-.menu-bloc-check{
-  height: 100%;
-  width: 60px;          // cette valeur pour déterminer l'animation (decallage lateral)
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  background-color: $color-tertiary;
-  .check-icone{
-    font-size: 22px;
+  .menu-bloc-check{
+    height: 100%;
+    width: 0px;          // 0 puis 60 apres animation
+    display: flex;
+    margin-left: 20px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: $color-tertiary;
+    .check-icone{
+      font-size: 22px;
+    }
   }
 }
 
@@ -148,7 +145,7 @@
   margin-top: 40px;
    display: flex;
    justify-content: center;
-    .btn--commande{  //"btn" de base dans le main.SCSS
+    .btn--commande{  // btn de base dans components
       width: 190px;
     }
  }
@@ -169,9 +166,9 @@
   .body{
     display: flex;
   }
-  .max-size-desktop{      // attention se retrouve aussi dans _accueil.scss
-    width: 1225px;
-  }
+  // .max-size-desktop{      // ajout dans le _form.scss
+  //  width: 1225px;
+  //}
 
   // Section 2 restaurant picture
   .restaurant-picture{
@@ -186,17 +183,17 @@
     display: flex;
     justify-content: center;
     border-radius: 0px;
-      .max-size-desktop{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .restaurant__name{
-        width: 100%;
-      }
-      .menu-responsive{
-        width: 33%;
-      }
+    .max-size-desktop{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .restaurant__name{
+      width: 100%;
+    }
+    .menu-responsive{
+      width: 33%;
+    }
   }
 }
 

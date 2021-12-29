@@ -1,3 +1,6 @@
+/*###################################*/
+/*######  VARIABLES COULEUR   #######*/
+/*###################################*/
 $color-background-primary: rgb(246, 246, 246); // gris léger
 $color-background-secondary: rgb(242, 237, 255); // violet léger
 
@@ -6,3 +9,11 @@ $color-secondary: #DD79DA;  //violet claire
 $color-tertiary: #99E2D0;  // vert mate 
 
 $color-background-gradient: ($color-secondary, $color-primary); // dégradé de $1 a $2
+
+
+/*###################################*/
+/*######    VARIABLES CARD    #######*/
+/*###################################*/
+
+$hauteur_card:252px;
+$hauteur_card_body:77px;

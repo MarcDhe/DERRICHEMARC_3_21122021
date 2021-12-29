@@ -5,11 +5,12 @@
 @import "./layout/form";   // layout; agencement des elements
 @import "./layout/header";
 @import "./layout/footer";
-@import "./layout/likebtn";
-@import "./layout/standardbtn";
+@import "./components/likebtn";
+@import "./components/standardbtn";
+@import "./components/load-spinner";
 @import "./pages/accueil";
-@import "./pages/a-la-francaise";
-@import"./pages/try";  // a retirer overkill
+@import "./pages/restaurants";
+
 
 
 

@@ -28,14 +28,25 @@ p, h2, h3, strong, li{
   
   }
 
-  /*###################################*/
+/*###################################*/
+/*#########    GENERAL    ###########*/
+/*###################################*/
   
 body{
   margin: 0px;
   padding: 0px;
+  overflow-x: hidden; // empeche la posibilité slidé vers la droite où se trouve le load spinner
 }
 
 a{
   text-decoration: none;
   color: black;
+}
+
+@media screen and (min-width : 1224px){
+
+.max-size-desktop{      // defini une taille max qui ce fera centrer par le body
+  width: 1225px;
+}
+
 }
