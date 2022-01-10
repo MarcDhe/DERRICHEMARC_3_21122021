@@ -155,6 +155,21 @@ div {
     transform: translatex(100%);
   }
 }
+@keyframes no-scroll {
+  0% {
+    overflow-y: hidden;
+  }
+  99% {
+    overflow-y: hidden;
+  }
+  100% {
+    overflow-y: auto;
+  }
+}
+body {
+  animation: no-scroll 2s;
+}
+
 .loading {
   animation: go-away 0s 2s forwards;
 }

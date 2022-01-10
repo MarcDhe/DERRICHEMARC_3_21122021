@@ -155,6 +155,22 @@ animation: check-valid-rotate 1000ms forwards;
   }
 }
 
+@keyframes no-scroll{  // a voir si on peut faire mieux
+  0%{
+    overflow-y: hidden;
+  }
+  99%{
+    overflow-y: hidden;
+  }
+  100%{
+    overflow-y: auto;
+  }
+}
+body{
+  animation: no-scroll 2s;
+}
+
+
 .loading{
   animation: go-away 0s 2s forwards;
 }
