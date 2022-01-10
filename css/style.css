@@ -166,7 +166,7 @@ div {
     overflow-y: auto;
   }
 }
-body {
+.no-scroll {
   animation: no-scroll 2s;
 }
 
@@ -507,7 +507,7 @@ label {
   margin: 0;
 }
 .restaurantSearch p {
-  font-weight: 100;
+  font-weight: 300;
   width: 80%;
 }
 
@@ -636,7 +636,7 @@ label {
 }
 .card__body p {
   margin: 0;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 /*###################################*/
@@ -819,7 +819,7 @@ label {
 }
 .menu-bloc__description {
   margin: 0px;
-  font-weight: lighter;
+  font-weight: 300;
   font-size: 15px;
   overflow: hidden;
   white-space: nowrap;
