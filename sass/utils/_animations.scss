@@ -32,7 +32,7 @@ plats: 1000ms,
 desserts: 2000ms
 );
 
-$i:1;
+
 
 @each $key, $value in $delay-list {
   .animation__#{$key}{
@@ -53,7 +53,6 @@ $i:1;
       animation: affichage-progressive $duration-animation-selection (($delay-animation *3)+ $value) ease-out forwards;
     }
   } 
-  $i: $i + 1 ;
 }
 
 
